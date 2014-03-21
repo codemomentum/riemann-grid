@@ -18,4 +18,6 @@
                                javx.jms/jms
                                com.sun.jdmk/jmxtools
                                com.sun.jmx/jmxri]]]
-  :main riemann-grid.core)
+  :main riemann-grid.core
+  :plugins [[lein-libdir "0.1.1"]]
+  )
