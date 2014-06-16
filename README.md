@@ -2,6 +2,18 @@
 
 Simple grid views for your riemann events
 
+#Fork Note
+This is our custom riemann-grid with http-basic auth and service wrapper
+
+##Running with Service Wrapper
+lein jar
+lein libdir
+copy <project-root>/target/riemann-grid-<version>.jar to <project-root>/lib/
+sh bin/launcher start
+or 
+edit parameters before starting (such as host etc..)
+
+
 ## Installing
 
 Either download the jar file from the downloads section, or compile yourself
@@ -51,14 +63,6 @@ Big items:
 
 * Dashboard mode
 * Link to graphite
-
-##Running with Service Wrapper
-lein jar
-lein libdir
-copy <project-root>/target/riemann-grid-<version>.jar to <project-root>/lib/
-sh bin/launcher start
-or 
-edit parameters before starting (such as host etc..)
 
 
 ## License
