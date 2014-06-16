@@ -17,7 +17,10 @@
                   :exclusions [javax.mail/mail
                                javx.jms/jms
                                com.sun.jdmk/jmxtools
-                               com.sun.jmx/jmxri]]]
+                               com.sun.jmx/jmxri]]
+                 ;http basic
+                 [ring-basic-authentication "1.0.5"]
+                 ]
   :main riemann-grid.core
   :plugins [[lein-libdir "0.1.1"]]
   )

@@ -11,8 +11,14 @@
             [ring.util.response         :refer [response status content-type
                                                 charset]]
             [ring.adapter.jetty         :refer [run-jetty]]
-            [riemann-grid.views         :as views])
+            [riemann-grid.views         :as views]
+            [ring.middleware.basic-authentication :refer [wrap-basic-authentication]])
   (:gen-class))
+
+(defn authenticated? [name pass]
+  (and (= name "mage")
+       (= pass "priest")))
+
 
 (def riemann-client (atom nil))
 
@@ -60,7 +66,8 @@
   (-> main-routes
       (wrap-json-body {:keywords? true})
       (wrap-json-response)
-      (wrap-resource "public")))
+      (wrap-resource "public")
+      (wrap-basic-authentication authenticated?)))
 
 (def cli-opts
   [["-l" "--listen"       "listen on"    :default "127.0.0.1"]
